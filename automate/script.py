@@ -58,25 +58,3 @@ while numero_unite < 6:
     numero_unite += 1
 
 numero_automate = 1
-
-# with open(json_name, 'r') as json_file:
-#     data = json.load(json_file)
-
-# data['data'].append({
-#     'numero_unite': numero_unite,
-#     'numero_automate': numero_automate,
-#     'type_automate': random.choice(type_automate),
-#     'temperature_cuve': temperature_cuve,
-#     'temperature_exterieur': temperature_exterieur,
-#     'poids_lait_cuve': poids_lait_cuve,
-#     'poids_produit_fini': poids_produit_fini,
-#     'pH': pH,
-#     'K': K,
-#     'NaCl': NaCl,
-#     'salmonelle': salmonelle,
-#     'Ecoli': Ecoli,
-#     'listeria': listeria
-# })
-
-# with open(json_name, 'w') as json_file:
-#     json.dump(data, json_file, indent=4)
