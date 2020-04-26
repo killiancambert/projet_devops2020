@@ -1,5 +1,5 @@
 //environnement
-const json_url = '/automate/json/paramunite_4_25-04-2020-18-54-50.json';
+const json_url = '/automate/json/paramunite_1_25-04-2020.json';
 async function getData() {
   const response = await fetch(json_url);
   const data = await response.json();
@@ -12,6 +12,10 @@ async function getData() {
 }
 
 const xlabels = [];
+const ylabels = [];
+for (let i = 0; i <= 60; i++) {
+  ylabels.push(i);
+}
 
 async function chartIt() {
   await getData();
@@ -19,7 +23,7 @@ async function chartIt() {
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: ylabels,
           datasets: [{
               label: 'pH',
               data: xlabels,
@@ -31,7 +35,17 @@ async function chartIt() {
               ],
               borderWidth: 1
           }]
-      }
+      },
+      options: {
+        scales: {
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Temps en min'
+              }
+            }]
+        }
+    }
   });
 }
 
