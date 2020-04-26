@@ -32,8 +32,8 @@ while numero_unite < 6:
         salmonelle = random.randint(17, 37)
         Ecoli = random.randint(35, 49)
         listeria = random.randint(28, 54)
-        data["automate_{}".format(numero_automate)] = []
-        data["automate_{}".format(numero_automate)].append({
+        data["unite_{}_automate_{}".format(numero_unite, numero_automate)] = []
+        data["unite_{}_automate_{}".format(numero_unite,numero_automate)].append({
             'numero_unite': numero_unite,
             'numero_automate': numero_automate,
             'type_automate': random.choice(type_automate),
