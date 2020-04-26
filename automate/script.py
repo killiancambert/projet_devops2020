@@ -20,7 +20,6 @@ while numero_unite < 6:
     numero_automate = 1
 
     data = {}
-    data['data'] = []
     while numero_automate < 11:
         type_automate = ['0X0000BA20', '0X0000BA2F']
         temperature_cuve = round(random.uniform(2.5, 4), 1)
@@ -33,7 +32,8 @@ while numero_unite < 6:
         salmonelle = random.randint(17, 37)
         Ecoli = random.randint(35, 49)
         listeria = random.randint(28, 54)
-        data['data'].append({
+        data["automate_{}".format(numero_automate)] = []
+        data["automate_{}".format(numero_automate)].append({
             'numero_unite': numero_unite,
             'numero_automate': numero_automate,
             'type_automate': random.choice(type_automate),
