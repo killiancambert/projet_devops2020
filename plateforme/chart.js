@@ -1,18 +1,35 @@
 //environnement
-const json_url = '/automate/json/paramunite_1_25-04-2020.json';
+// const json_url = '/automate/json/paramunite_1_26-04-2020.json';
+const json_url = '/automate/json/paramunite_1_26-04-2020copy.json';
 async function getData() {
   const response = await fetch(json_url);
   const data = await response.json();
 
   // xlabels.push(data.pH);
 
-  console.log(data);
+  var i, j, k, x = "";
 
-  document.getElementById('ph').textContent = data.pH;
+  for (i in data.unites) {
+    for (j in data.unites[i].automates) {
+      console.log(data.unites[i].automates[j].infos);
+      for (k in data.unites[i].automates[j].infos) {
+        console.log(data.unites[i].automates[j].infos[k].pH);
+        toto = data.unites[i].automates[j].infos[k].pH;
+        x_datapH.push(toto);
+        x += "<span>" + "pH :" + toto + "</span>";
+      }
+    }
+  }
+  document.getElementById("ph").innerHTML = x;
+  
+
+  // document.getElementById('ph').textContent = data.pH;
 }
 
 const pH_min = 1;
 const pH_max = 14
+
+const x_datapH = [];
 
 const x_pH = [];
 for (let i = 0; i < 61; i++) {
@@ -34,7 +51,7 @@ async function chartIt() {
           labels: ylabels,
           datasets: [{
               label: 'pH',
-              data: x_pH,
+              data: x_datapH,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)'
               ],
