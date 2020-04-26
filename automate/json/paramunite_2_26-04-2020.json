@@ -1,172 +1,254 @@
 {
-    "unite_2_automate_1": [
+    "unites": [
         {
-            "numero_unite": 2,
-            "numero_automate": 1,
-            "type_automate": "0X0000BA2F",
-            "temperature_cuve": 2.6,
-            "temperature_exterieur": 9.0,
-            "poids_lait_cuve": 4016,
-            "poids_produit_fini": 1,
-            "pH": 6.9,
-            "K": 44,
-            "NaCl": 1.4,
-            "salmonelle": 25,
-            "Ecoli": 38,
-            "listeria": 50
-        }
-    ],
-    "unite_2_automate_2": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_1",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 1,
+                            "type_automate": "0X0000BA20",
+                            "temperature_cuve": 3.0,
+                            "temperature_exterieur": 8.9,
+                            "poids_lait_cuve": 4404,
+                            "poids_produit_fini": 1,
+                            "pH": 6.8,
+                            "K": 42,
+                            "NaCl": 1.4,
+                            "salmonelle": 17,
+                            "Ecoli": 40,
+                            "listeria": 51
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 2,
-            "type_automate": "0X0000BA2F",
-            "temperature_cuve": 3.7,
-            "temperature_exterieur": 12.0,
-            "poids_lait_cuve": 3556,
-            "poids_produit_fini": 1,
-            "pH": 7.2,
-            "K": 36,
-            "NaCl": 1.1,
-            "salmonelle": 20,
-            "Ecoli": 45,
-            "listeria": 54
-        }
-    ],
-    "unite_2_automate_3": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_2",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 2,
+                            "type_automate": "0X0000BA20",
+                            "temperature_cuve": 3.3,
+                            "temperature_exterieur": 10.8,
+                            "poids_lait_cuve": 4387,
+                            "poids_produit_fini": 1,
+                            "pH": 7.0,
+                            "K": 39,
+                            "NaCl": 1.5,
+                            "salmonelle": 31,
+                            "Ecoli": 35,
+                            "listeria": 31
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 3,
-            "type_automate": "0X0000BA20",
-            "temperature_cuve": 2.8,
-            "temperature_exterieur": 11.0,
-            "poids_lait_cuve": 4394,
-            "poids_produit_fini": 1,
-            "pH": 7.0,
-            "K": 42,
-            "NaCl": 1.4,
-            "salmonelle": 35,
-            "Ecoli": 38,
-            "listeria": 42
-        }
-    ],
-    "unite_2_automate_4": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_3",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 3,
+                            "type_automate": "0X0000BA20",
+                            "temperature_cuve": 3.1,
+                            "temperature_exterieur": 13.1,
+                            "poids_lait_cuve": 4353,
+                            "poids_produit_fini": 1,
+                            "pH": 6.8,
+                            "K": 35,
+                            "NaCl": 1.0,
+                            "salmonelle": 34,
+                            "Ecoli": 37,
+                            "listeria": 50
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 4,
-            "type_automate": "0X0000BA20",
-            "temperature_cuve": 3.3,
-            "temperature_exterieur": 11.9,
-            "poids_lait_cuve": 3592,
-            "poids_produit_fini": 1,
-            "pH": 7.1,
-            "K": 44,
-            "NaCl": 1.2,
-            "salmonelle": 32,
-            "Ecoli": 44,
-            "listeria": 35
-        }
-    ],
-    "unite_2_automate_5": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_4",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 4,
+                            "type_automate": "0X0000BA20",
+                            "temperature_cuve": 3.0,
+                            "temperature_exterieur": 9.0,
+                            "poids_lait_cuve": 4344,
+                            "poids_produit_fini": 1,
+                            "pH": 7.1,
+                            "K": 37,
+                            "NaCl": 1.2,
+                            "salmonelle": 23,
+                            "Ecoli": 43,
+                            "listeria": 43
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 5,
-            "type_automate": "0X0000BA20",
-            "temperature_cuve": 3.4,
-            "temperature_exterieur": 10.5,
-            "poids_lait_cuve": 4607,
-            "poids_produit_fini": 1,
-            "pH": 7.1,
-            "K": 41,
-            "NaCl": 1.3,
-            "salmonelle": 31,
-            "Ecoli": 42,
-            "listeria": 52
-        }
-    ],
-    "unite_2_automate_6": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_5",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 5,
+                            "type_automate": "0X0000BA2F",
+                            "temperature_cuve": 3.1,
+                            "temperature_exterieur": 12.6,
+                            "poids_lait_cuve": 3577,
+                            "poids_produit_fini": 1,
+                            "pH": 6.8,
+                            "K": 43,
+                            "NaCl": 1.7,
+                            "salmonelle": 22,
+                            "Ecoli": 43,
+                            "listeria": 36
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 6,
-            "type_automate": "0X0000BA2F",
-            "temperature_cuve": 3.5,
-            "temperature_exterieur": 8.4,
-            "poids_lait_cuve": 3875,
-            "poids_produit_fini": 1,
-            "pH": 6.8,
-            "K": 38,
-            "NaCl": 1.3,
-            "salmonelle": 30,
-            "Ecoli": 43,
-            "listeria": 32
-        }
-    ],
-    "unite_2_automate_7": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_6",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 6,
+                            "type_automate": "0X0000BA20",
+                            "temperature_cuve": 2.8,
+                            "temperature_exterieur": 13.3,
+                            "poids_lait_cuve": 3708,
+                            "poids_produit_fini": 1,
+                            "pH": 6.9,
+                            "K": 46,
+                            "NaCl": 1.0,
+                            "salmonelle": 24,
+                            "Ecoli": 35,
+                            "listeria": 46
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 7,
-            "type_automate": "0X0000BA2F",
-            "temperature_cuve": 4.0,
-            "temperature_exterieur": 11.9,
-            "poids_lait_cuve": 3944,
-            "poids_produit_fini": 1,
-            "pH": 7.2,
-            "K": 38,
-            "NaCl": 1.6,
-            "salmonelle": 34,
-            "Ecoli": 39,
-            "listeria": 34
-        }
-    ],
-    "unite_2_automate_8": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_7",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 7,
+                            "type_automate": "0X0000BA2F",
+                            "temperature_cuve": 2.5,
+                            "temperature_exterieur": 9.1,
+                            "poids_lait_cuve": 3635,
+                            "poids_produit_fini": 1,
+                            "pH": 7.1,
+                            "K": 42,
+                            "NaCl": 1.7,
+                            "salmonelle": 32,
+                            "Ecoli": 42,
+                            "listeria": 41
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 8,
-            "type_automate": "0X0000BA2F",
-            "temperature_cuve": 3.4,
-            "temperature_exterieur": 13.2,
-            "poids_lait_cuve": 3742,
-            "poids_produit_fini": 1,
-            "pH": 6.8,
-            "K": 36,
-            "NaCl": 1.2,
-            "salmonelle": 22,
-            "Ecoli": 47,
-            "listeria": 49
-        }
-    ],
-    "unite_2_automate_9": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_8",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 8,
+                            "type_automate": "0X0000BA2F",
+                            "temperature_cuve": 2.7,
+                            "temperature_exterieur": 11.4,
+                            "poids_lait_cuve": 3641,
+                            "poids_produit_fini": 1,
+                            "pH": 6.9,
+                            "K": 41,
+                            "NaCl": 1.6,
+                            "salmonelle": 29,
+                            "Ecoli": 39,
+                            "listeria": 36
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 9,
-            "type_automate": "0X0000BA20",
-            "temperature_cuve": 3.4,
-            "temperature_exterieur": 13.4,
-            "poids_lait_cuve": 3997,
-            "poids_produit_fini": 1,
-            "pH": 7.0,
-            "K": 45,
-            "NaCl": 1.2,
-            "salmonelle": 29,
-            "Ecoli": 42,
-            "listeria": 37
-        }
-    ],
-    "unite_2_automate_10": [
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_9",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 9,
+                            "type_automate": "0X0000BA2F",
+                            "temperature_cuve": 3.9,
+                            "temperature_exterieur": 9.3,
+                            "poids_lait_cuve": 4586,
+                            "poids_produit_fini": 1,
+                            "pH": 6.8,
+                            "K": 44,
+                            "NaCl": 1.0,
+                            "salmonelle": 19,
+                            "Ecoli": 38,
+                            "listeria": 48
+                        }
+                    ]
+                }
+            ]
+        },
         {
-            "numero_unite": 2,
-            "numero_automate": 10,
-            "type_automate": "0X0000BA20",
-            "temperature_cuve": 3.7,
-            "temperature_exterieur": 12.2,
-            "poids_lait_cuve": 3816,
-            "poids_produit_fini": 1,
-            "pH": 7.0,
-            "K": 37,
-            "NaCl": 1.1,
-            "salmonelle": 20,
-            "Ecoli": 46,
-            "listeria": 45
+            "name": "unite_2",
+            "automates": [
+                {
+                    "name": "automate_10",
+                    "infos": [
+                        {
+                            "numero_unite": 2,
+                            "numero_automate": 10,
+                            "type_automate": "0X0000BA20",
+                            "temperature_cuve": 3.7,
+                            "temperature_exterieur": 10.9,
+                            "poids_lait_cuve": 3564,
+                            "poids_produit_fini": 1,
+                            "pH": 6.9,
+                            "K": 43,
+                            "NaCl": 1.4,
+                            "salmonelle": 34,
+                            "Ecoli": 40,
+                            "listeria": 47
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
