@@ -4,14 +4,22 @@ async function getData() {
   const response = await fetch(json_url);
   const data = await response.json();
 
-  xlabels.push(data.pH);
+  // xlabels.push(data.pH);
 
   console.log(data);
 
   document.getElementById('ph').textContent = data.pH;
 }
 
-const xlabels = [];
+const pH_min = 1;
+const pH_max = 14
+
+const x_pH = [];
+for (let i = 0; i < 61; i++) {
+  result = Math.random() * (pH_max-pH_min) + pH_min;
+  x_pH.push(result);
+}
+
 const ylabels = [];
 for (let i = 0; i <= 60; i++) {
   ylabels.push(i);
@@ -26,7 +34,7 @@ async function chartIt() {
           labels: ylabels,
           datasets: [{
               label: 'pH',
-              data: xlabels,
+              data: x_pH,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)'
               ],
@@ -35,7 +43,15 @@ async function chartIt() {
               ],
               borderWidth: 1
           }, {
-              label: 'K'
+              label: 'K',
+              data: [ 12, 9, 10, 5, 4],
+              backgroundColor: [
+                  'rgba(252, 207, 3, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(252, 207, 3, 1)'
+              ],
+              borderWidth: 1
           }]
       },
       options: {
