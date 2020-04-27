@@ -1,5 +1,6 @@
 # projet_devops2020
 
-Killian Cambert
-Antonin Joulie
-Valentin Dezat
+> Prénom Nom --> Pseudo Github
+Killian Cambert --> killiancambert
+Antonin Joulie --> AntoninJoulie
+Valentin Dezat --> valdezat
