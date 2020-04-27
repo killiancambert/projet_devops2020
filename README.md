@@ -2,5 +2,5 @@
 
 > Prénom Nom --> Pseudo Github
 Killian Cambert --> killiancambert
-Antonin Joulie --> Antonin Joulie
+Antonin Joulie --> AntoninJoulie
 Valentin Dezat --> valdezat
