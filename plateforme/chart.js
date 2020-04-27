@@ -1,5 +1,5 @@
 //environnement
-const json_url = '/automate/json/paramunite_1_26-04-2020.json';
+const json_url = '/automate/json/paramunite_1_27-04-2020.json';
 async function getData() {
   const response = await fetch(json_url);
   const data = await response.json();

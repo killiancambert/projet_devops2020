@@ -4,7 +4,7 @@ import random
 # Connect to the database
 conn = pymysql.connect(host='localhost',
                              user='root',
-                             port=3308,
+                             port=3306,
                              password='',
                              db='testdevops',
                              cursorclass=pymysql.cursors.DictCursor)
