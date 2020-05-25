@@ -5,7 +5,7 @@ import os
 import pymysql.cursors
 
 # Récupération du fichier JSON
-file ='C:/Users/Asus/Documents/devops/projet_devops2020/automate/json/paramunite_1_26-04-2020.json'
+file ='../automate/json/paramunite_1_19-05-2020.json'
 json_data=open(file).read()
 json_obj = json.loads(json_data)
 
@@ -28,7 +28,7 @@ def validate_string(val):
 conn = pymysql.connect(host='localhost',
                              user='root',
                              port=3308,
-                             password='',
+                             password='root',
                              db='testdevops',
                              cursorclass=pymysql.cursors.DictCursor)
 

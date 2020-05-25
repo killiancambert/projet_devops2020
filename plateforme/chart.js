@@ -1,5 +1,32 @@
-//environnement
-const json_url = '/automate/json/paramunite_1_27-04-2020.json';
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3009;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+
+const json_url = '/automate/json/paramunite_1_19-05-2020.json';
+
+// const mariadb = require('mariadb');
+
+//   mariadb.createConnection({host: 'localhost', user: 'root', password: 'root'})
+//     connection.query("SELECT * FROM automate")
+//     .then(rows => {
+//       console.log(rows);
+//     })
+//     .catch(err => {
+//       //handle connection error
+//     });
+
 async function getData() {
   const response = await fetch(json_url);
   const data = await response.json();
@@ -82,8 +109,8 @@ for (let i = 0; i <= 60; i++) {
 
 async function chartIt() {
   await getData();
-  var ctx = document.getElementById('chart').getContext('2d');
-  var myChart = new Chart(ctx, {
+  var ctx1 = document.getElementById('chart1').getContext('2d');
+  var Chart1 = new Chart(ctx1, {
       type: 'line',
       data: {
           labels: ylabels,
@@ -176,7 +203,13 @@ async function chartIt() {
                 beginAtZero: true
               }
             }]
-        }
+        },
+        layout: {
+          left: 20,
+          right: 20,
+          top: 20,
+          bottom: 20
+        },
     }
   });
 }

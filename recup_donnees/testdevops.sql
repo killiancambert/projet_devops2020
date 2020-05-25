@@ -28,28 +28,30 @@ SET time_zone = "+00:00";
 -- Structure de la table `automate`
 --
 
-DROP TABLE IF EXISTS `automate`;
-CREATE TABLE IF NOT EXISTS `automate` (
-  `numero_unite` int(2) NOT NULL,
-  `numero_automate` int(2) NOT NULL,
-  `type_automate` varchar(10) NOT NULL,
-  `temperature_cuve` float NOT NULL,
-  `temperature_exterieur` float NOT NULL,
-  `poids_lait_cuve` int(4) NOT NULL,
-  `poids_produit_fini` int(2) NOT NULL,
-  `pH` float NOT NULL,
-  `K` int(2) NOT NULL,
-  `NaCl` float NOT NULL,
-  `salmonelle` int(2) NOT NULL,
-  `Ecoli` int(2) NOT NULL,
-  `listeria` int(2) NOT NULL
+DROP TABLE IF EXISTS automate;
+CREATE TABLE IF NOT EXISTS automate (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  numero_unite int(2) NOT NULL,
+  numero_automate int(2) NOT NULL,
+  type_automate varchar(10) NOT NULL,
+  temperature_cuve float NOT NULL,
+  temperature_exterieur float NOT NULL,
+  poids_lait_cuve int(4) NOT NULL,
+  poids_produit_fini int(2) NOT NULL,
+  pH float NOT NULL,
+  K int(2) NOT NULL,
+  NaCl float NOT NULL,
+  salmonelle int(2) NOT NULL,
+  Ecoli int(2) NOT NULL,
+  listeria int(2) NOT NULL,
+  primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `automate`
 --
 
-INSERT INTO `automate` (`numero_unite`, `numero_automate`, `type_automate`, `temperature_cuve`, `temperature_exterieur`, `poids_lait_cuve`, `poids_produit_fini`, `pH`, `K`, `NaCl`, `salmonelle`, `Ecoli`, `listeria`) VALUES
+INSERT INTO automate ( `numero_unite`, `numero_automate`, `type_automate`, `temperature_cuve`, `temperature_exterieur`, `poids_lait_cuve`, `poids_produit_fini`, `pH`, `K`, `NaCl`, `salmonelle`, `Ecoli`, `listeria`) VALUES
 (1, 1, '0X0000BA20', 2.8, 8.1, 4368, 1, 6.9, 38, 1.4, 25, 45, 39),
 (1, 2, '0X0000BA20', 2.7, 12.7, 3642, 1, 6.9, 41, 1, 23, 36, 45),
 (1, 3, '0X0000BA20', 3.2, 10.3, 4160, 1, 7.1, 44, 1.3, 24, 35, 32),
