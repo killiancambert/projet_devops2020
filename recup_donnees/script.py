@@ -1,5 +1,12 @@
 # //La communication entre le mécanisme de lecture des fichiers json et de génération se fera par Socket Python chaque fois qu’un fichier sera disponible
 
+from flask import Flask
+from flask_restful import Resource, Api
+
+# Instantiate the app
+app = Flask(__name__)
+api = Api(app)
+
 import json
 import os
 import pymysql.cursors
@@ -58,3 +65,10 @@ for value in json_obj.values():
 
     finally:
         conn.close()
+
+# Create routes
+api.add_resource(validate_string, '/')
+
+# Run the application
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80, debug=True)

@@ -4,6 +4,13 @@
 
 # //Python 3.7.x
 
+from flask import Flask
+from flask_restful import Resource, Api
+
+# Instantiate the app
+app = Flask(__name__)
+api = Api(app)
+
 import threading
 import json
 from datetime import datetime
@@ -76,3 +83,10 @@ def launch_automate():
 
 
 launch_automate()
+
+# Create routes
+api.add_resource(launch_automate, '/')
+
+# Run the application
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80, debug=True)
