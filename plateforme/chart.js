@@ -1,4 +1,4 @@
-const json_url = '/automate/json/paramunite_1_19-05-2020.json';
+const json_url = '/automate/json/paramunite_test.json';
 
 // var mysql = require('mysql');
 
