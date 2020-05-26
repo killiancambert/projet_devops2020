@@ -4,12 +4,28 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link type="text/js" href="chart.js">
-    <title>Titre de la page</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <title>Interface de visualisation</title>
 </head>
 
 
 <body>
+
+    <div class="main-container">
+        <div class="table-1">
+            <h1>Unité 1</h1>
+            <h2>Cliquez sur les différents label de la légende pour faire apparaître/disparaitre les données
+                correspondantes
+            </h2>
+            <div class="chart-container">
+                <canvas id="chart1"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="chart.js"></script>
 
 </body>
 
