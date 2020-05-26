@@ -4,6 +4,10 @@
 
 # //Python 3.7.x
 
+import random
+from datetime import datetime
+import json
+import threading
 from flask import Flask
 from flask_restful import Resource, Api
 
@@ -11,10 +15,6 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
-import threading
-import json
-from datetime import datetime
-import random
 
 def launch_automate():
     threading.Timer(60.0, launch_automate).start()  # called every minute
@@ -33,7 +33,7 @@ def launch_automate():
         numero_automate = 1
 
         data = {}
-        data["unites"] = []
+        data["data"] = []
         while numero_automate < 11:
 
             type_automate = ['0X0000BA20', '0X0000BA2F']
@@ -48,26 +48,20 @@ def launch_automate():
             Ecoli = random.randint(35, 49)
             listeria = random.randint(28, 54)
 
-            data["unites"].append({
-                'name': "unite_{}".format(numero_unite),
-                'automates': [{
-                    'name': "automate_{}".format(numero_automate),
-                    'infos': [{
-                        'numero_unite': numero_unite,
-                        'numero_automate': numero_automate,
-                        'type_automate': random.choice(type_automate),
-                        'temperature_cuve': temperature_cuve,
-                        'temperature_exterieur': temperature_exterieur,
-                        'poids_lait_cuve': poids_lait_cuve,
-                        'poids_produit_fini': poids_produit_fini,
-                        'pH': pH,
-                        'K': K,
-                        'NaCl': NaCl,
-                        'salmonelle': salmonelle,
-                        'Ecoli': Ecoli,
-                        'listeria': listeria
-                    }]
-                }]
+            data["data"].append({
+                'numero_unite': numero_unite,
+                'numero_automate': numero_automate,
+                'type_automate': random.choice(type_automate),
+                'temperature_cuve': temperature_cuve,
+                'temperature_exterieur': temperature_exterieur,
+                'poids_lait_cuve': poids_lait_cuve,
+                'poids_produit_fini': poids_produit_fini,
+                'pH': pH,
+                'K': K,
+                'NaCl': NaCl,
+                'salmonelle': salmonelle,
+                'Ecoli': Ecoli,
+                'listeria': listeria
             })
             numero_automate += 1
 

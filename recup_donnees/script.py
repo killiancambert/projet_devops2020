@@ -12,7 +12,7 @@ import os
 import pymysql.cursors
 
 # Récupération du fichier JSON
-file ='../automate/json/paramunite_1_19-05-2020.json'
+file = 'paramunite_1_26-05-2020.json'
 json_data=open(file).read()
 json_obj = json.loads(json_data)
 
@@ -34,9 +34,8 @@ def validate_string(val):
 # Connexion à la base de données
 conn = pymysql.connect(host='localhost',
                              user='root',
-                             port=3308,
                              password='root',
-                             db='testdevops',
+                             db='devops',
                              cursorclass=pymysql.cursors.DictCursor)
 
 for value in json_obj.values():
@@ -56,7 +55,7 @@ for value in json_obj.values():
     try:
         with conn.cursor() as cursor:
             # Create a new record
-            sql = "INSERT INTO 'automate' ('numero_unite',	'numero_automate','type_automate', 'temperature_cuve', 'temperature_exterieur', 'poids_lait_cuve', 'poids_produit_fini', 'pH', 'K', 'NaCl', 'salmonelle', 'Ecoli', 'listeria') VALUES (%s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s,	%s)"
+            sql = "INSERT INTO 'data' ('numero_unite',	'numero_automate','type_automate', 'temperature_cuve', 'temperature_exterieur', 'poids_lait_cuve', 'poids_produit_fini', 'pH', 'K', 'NaCl', 'salmonelle', 'Ecoli', 'listeria') VALUES (%s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s,	%s)"
             cursor.execute(sql, (numero_unite,	numero_automate,type_automate, temperature_cuve, temperature_exterieur, poids_lait_cuve, poids_produit_fini, pH, K, NaCl, salmonelle, Ecoli, listeria))
             #  cursor.execute("INSERT INTO automate (numero_unite,	numero_automate,type_automate, temperature_cuve, temperature_exterieur, poids_lait_cuve, poids_produit_fini, pH, K, NaCl, salmonelle, Ecoli, listeria) VALUES (%s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s,	%s)", (numero_unite,	numero_automate,type_automate, temperature_cuve, temperature_exterieur, poids_lait_cuve, poids_produit_fini, pH, K, NaCl, salmonelle, Ecoli, listeria))
 
