@@ -1,12 +1,12 @@
 # //La communication entre le mécanisme de lecture des fichiers json et de génération se fera par Socket Python chaque fois qu’un fichier sera disponible
 
-from flask import Flask
-from flask_restful import Resource, Api
 import mysql.connector as MC
+# from flask import Flask
+# from flask_restful import Resource, Api
 
-# Instantiate the app
-app = Flask(__name__)
-api = Api(app)
+# # Instantiate the app
+# app = Flask(__name__)
+# api = Api(app)
 
 
 def insert_data():
@@ -37,9 +37,12 @@ def insert_data():
             conn.close()
 
 
-# Create routes
-api.add_resource(insert_data, '/')
+insert_data()
 
-# Run the application
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
+
+# # Create routes
+# api.add_resource(insert_data, '/')
+
+# # Run the application
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=80, debug=True)
