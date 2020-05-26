@@ -1,8 +1,8 @@
 # Projet DevOps 2020
 
-Killian Cambert : killiancambert
-Antonin Joulie : AntoninJoulie
-Valentin Dezat : valdezat
+- Killian Cambert : killiancambert
+- Antonin Joulie : AntoninJoulie
+- Valentin Dezat : valdezat
 
 # Comment lancer Docker
 
