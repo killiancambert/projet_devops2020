@@ -1,5 +1,22 @@
 const json_url = '/automate/json/paramunite_1_19-05-2020.json';
 
+// var mysql = require('mysql');
+
+// var con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "root",
+//   database: "testdevops"
+// });
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   con.query("SELECT * FROM automate ", function (err, result, fields) {
+//     if (err) throw err;
+//     console.log(result);
+//   });
+// });
+
 
 async function getData() {
   const response = await fetch(json_url);
@@ -76,18 +93,18 @@ const x_dataSal = [];
 const x_dataEco = [];
 const x_dataLis = [];
 
-const ylabels = [];
-for (let i = 0; i <= 60; i++) {
-  ylabels.push(i);
-}
+// const ylabels = [];
+// for (let i = 0; i <= 60; i++) {
+//   ylabels.push(i);
+// }
 
 async function chartIt() {
   await getData();
   var ctx = document.getElementById('myChart').getContext('2d');
-  var Chart = new Chart(ctx, {
-      type: 'line',
+  var myChart = new Chart(ctx, {
+      type: 'bar',
       data: {
-          labels: ylabels,
+          // labels: ylabels,
           datasets: [{
               label: 'pH',
               data: x_datapH,
@@ -164,10 +181,6 @@ async function chartIt() {
       options: {
         scales: {
             xAxes: [{
-              scaleLabel: {
-                display: true,
-                labelString: 'Temps en min'
-              },
               ticks: {
                 beginAtZero: true
               }
