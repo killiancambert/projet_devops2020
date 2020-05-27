@@ -1,3 +1,9 @@
-FROM python:3-onbuild
-COPY . /usr/src/app
-CMD ["python", "script.py"]
+FROM python:3
+
+WORKDIR /app
+
+RUN mkdir /app/json
+
+COPY generation.py .
+
+CMD ["python", "./generation.py"]
