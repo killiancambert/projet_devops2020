@@ -8,5 +8,6 @@ RUN pip install flask_cors
 RUN pip install mariadb
 
 COPY script.py .
+COPY python_dump.py .
 
-CMD ["python", "./script.py"]
+CMD ["python", "./script.py", "python_dump.py"]
