@@ -1,18 +1,42 @@
-version: '3'
+version: "3"
 
 services:
-  automate:
-    build: ./automate
-    volumes:
-      - ./automate:/usr/src/app
+  db :
+    image: mysql
+    environment:
+      MYSQL_DATABASE: "devops"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "devops"
+      MYSQL_ROOT_PASSWORD: "rootdevops"
     ports:
-      - 5001:80
+      - "3308:3306"
 
-  recup_donnees:
-    build: ./recup_donnees
-    volumes:
-      - ./recup_donnees:/usr/src/app
-    ports:
-      - 5000:80
-    depends_on:
-      - automate
+  unite_1:
+    container_name: unite_1
+    build: ./automate/
+    environment:
+      - UNITE=1
+
+  unite_2:
+    container_name: unite_2
+    build: ./automate/
+    environment:
+      - UNITE=2
+
+  unite_3:
+    container_name: unite_3
+    build: ./automate/
+    environment:
+      - UNITE=3
+
+  unite_4:
+    container_name: unite_4
+    build: ./automate/
+    environment:
+      - UNITE=4
+
+  unite_5:
+    container_name: unite_5
+    build: ./automate/
+    environment:
+      - UNITE=5
