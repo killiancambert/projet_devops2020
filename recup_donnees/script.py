@@ -18,9 +18,10 @@ def getDate(o):
         return o.timestamp()
 
 
+# Permet de voir la données sur http://127.0.0.1:5000/unites/all
 @app.route('/unites/all', methods=['GET'])
 def get_all_unites():
-    mariadb_connection = mariadb.connect(host='localhost',
+    mariadb_connection = mariadb.connect(host='127.0.0.1',
                                          database='devops',
                                          port='3306',
                                          user='root',
@@ -46,6 +47,7 @@ def get_all_unites():
             mimetype='application/json'
             ))
 
+# Acceuil sur http://127.0.0.1:5000/
 @app.route('/', methods=['GET'])
 def home():
     return "<h1>DATA API</h1><p>Acces à toutes les data des unites et leurs automates.</p>"
