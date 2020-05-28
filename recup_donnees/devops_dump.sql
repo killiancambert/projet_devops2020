@@ -23,21 +23,20 @@ DROP TABLE IF EXISTS `data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `data` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `numero_unite` int(2) NOT NULL,
   `numero_automate` int(2) NOT NULL,
-  `type_automate` varchar(10) NOT NULL,
-  `temperature_cuve` float NOT NULL,
-  `temperature_exterieur` float NOT NULL,
-  `poids_lait_cuve` int(4) NOT NULL,
-  `poids_produit_fini` int(2) NOT NULL,
-  `pH` float NOT NULL,
-  `K` int(2) NOT NULL,
-  `NaCl` float NOT NULL,
-  `salmonelle` int(2) NOT NULL,
-  `Ecoli` int(2) NOT NULL,
-  `listeria` int(2) NOT NULL,
-  PRIMARY KEY (`id`)
+  `type_automate` varchar(10) NOT NULL DEFAULT '9999999999',
+  `temperature_cuve` float NOT NULL DEFAULT 99.99,
+  `temperature_exterieur` float NOT NULL DEFAULT 99.99,
+  `poids_lait_cuve` int(4) NOT NULL DEFAULT 10000000,
+  `poids_produit_fini` int(2) NOT NULL DEFAULT 10000000,
+  `pH` float NOT NULL DEFAULT 9999.9,
+  `K` int(2) NOT NULL DEFAULT 99,
+  `NaCl` float NOT NULL DEFAULT 9999.9,
+  `salmonelle` int(2) NOT NULL DEFAULT 99,
+  `Ecoli` int(2) NOT NULL DEFAULT 99,
+  `listeria` int(2) NOT NULL DEFAULT 99,
+  `dateheure` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +49,4 @@ CREATE TABLE `data` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-26  8:35:52
+-- Dump completed on 2020-05-28  9:12:21
