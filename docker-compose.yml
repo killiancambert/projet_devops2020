@@ -2,6 +2,7 @@ version: "3"
 
 services:
   db :
+    container_name: db
     image: mysql
     environment:
       MYSQL_DATABASE: "devops"
@@ -40,3 +41,9 @@ services:
     build: ./automate/
     environment:
       - UNITE=5
+
+  recup_donnees:
+    container_name: recup_donnees
+    build: ./recup_donnees/
+    ports:
+      - "5000:5000"

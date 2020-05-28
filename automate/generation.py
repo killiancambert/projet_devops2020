@@ -39,6 +39,7 @@ def generation(sc):
             salmonelle = random.randint(17, 37)
             Ecoli = random.randint(35, 49)
             listeria = random.randint(28, 54)
+            dateheure = today.strftime("%d-%m-%Y %H:%M:%S")
             data.append({
                 'numero_unite': x,
                 'numero_automate': y,
@@ -52,7 +53,8 @@ def generation(sc):
                 'NaCl': NaCl,
                 'salmonelle': salmonelle,
                 'Ecoli': Ecoli,
-                'listeria': listeria
+                'listeria': listeria,
+                'dateheure': dateheure
             })
         with open('json/'+json_name, 'w') as json_file:
             json.dump(data, json_file, indent=4)
