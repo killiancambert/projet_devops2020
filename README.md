@@ -8,6 +8,12 @@
 
 Pour lancer les programmes python en local, il va vous falloir 4 invite de commande.
 
+Voici tout d'abord les dépendances nécessaires :
+
+`python -m pip install mysql-connector-python`
+`python -m pip install flask`
+`python -m pip install flask_cors`
+
 Parcourez les fichiers pour entrer dans le document 'automate' puis lancez la commande suivante :
 
 `python generation.py`
