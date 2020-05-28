@@ -5,6 +5,7 @@ import time
 import json
 import sys
 import os
+import socket
 
 
 id_unite = os.getenv('UNITE')
@@ -12,16 +13,19 @@ id_unite = os.getenv('UNITE')
 if id_unite == None:
     id_unite = [1, 2, 3, 4, 5]
 
+# Définir le nombre d'unité et d'automate souhaité
 nombre_unite = 5
 nombre_automate = 10
 
+# Liste pour séléctionner aléatoirement le type d'automate
 random_type = ['0X0000BA20', '0X0000BA2F']
 
 
 today = datetime.now()
 date = today.strftime("%d-%m-%Y")
 
-s = sched.scheduler(time.time, time.sleep)
+sched = sched.scheduler(time.time, time.sleep)
+
 def generation(sc):
     for x in id_unite:
         json_name = "paramunite_"+str(x)+"_"+str(date)+".json"
@@ -61,7 +65,17 @@ def generation(sc):
         print("Fichier %s créé" % json_name)
     print("\nLe prochain fichier sera créé dans 60 secondes.")
     
-    s.enter(60, 1, generation, (sc,))
+    sched.enter(60, 1, generation, (sc,))
 
-s.enter(0, 1, generation, (s,))
-s.run()
+
+# s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# s.bind((socket.gethostname(), 1234))
+# s.listen(5)
+# while True:
+#     clientsocket, address = s.accept()
+#     print(f"Connexion de {address} a été établie !")
+#     clientsocket.send(bytes("Socket marche !", "utf-8"))
+#     print('Envoie du fichier au serveur')
+
+sched.enter(0, 1, generation, (sched,))
+sched.run()
