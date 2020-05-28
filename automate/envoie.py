@@ -38,8 +38,9 @@ def envoie(sc):
                                             NaCl,
                                             salmonelle,
                                             Ecoli,
-                                            listeria
-                                            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+                                            listeria,
+                                            dateheure
+                                            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
                     cursor.execute(sql_insert_automate, (
                         automate['numero_unite'],
                         automate['numero_automate'],
@@ -53,7 +54,8 @@ def envoie(sc):
                         automate['NaCl'],
                         automate['salmonelle'],
                         automate['Ecoli'],
-                        automate['listeria']
+                        automate['listeria'],
+                        automate['dateheure']
                     ))
                     connection.commit()
             finally:
