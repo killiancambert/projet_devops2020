@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: "devops"
       MYSQL_ROOT_PASSWORD: "rootdevops"
     ports:
-      - "3308:3306"
+      - "3309:3306"
 
   unite_1:
     container_name: unite_1
