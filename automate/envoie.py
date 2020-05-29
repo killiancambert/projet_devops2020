@@ -26,7 +26,7 @@ def envoie():
                                                  database='devops',
                                                  port='3306',
                                                  user='root',
-                                                 password='rootdevops')
+                                                 password='root')
             cursor = connection.cursor()
             try:
                 # Ajout données récupéré dans les json dans la base de données

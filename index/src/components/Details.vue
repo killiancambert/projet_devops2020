@@ -80,7 +80,7 @@ export default {
   },
   created() {
     this.axios
-      .get("http://localhost:5000:unites?id=" + this.id)
+      .get("http://localhost:5000/unites?id=" + this.id)
       .then(response => {
         this.response = response.data;
         this.request();

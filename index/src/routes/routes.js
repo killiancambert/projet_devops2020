@@ -6,7 +6,7 @@ import Details from '../components/Details'
 Vue.use(Router);
 
 const router = new Router({
-  mode: "hash"
+  mode: "hash",
   routes: [{
     path: "/",
     name: "home",

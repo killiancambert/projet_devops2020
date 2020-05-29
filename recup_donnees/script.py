@@ -25,7 +25,7 @@ def get_all_unites():
                                          database='devops',
                                          port='3306',
                                          user='root',
-                                         password='rootdevops')
+                                         password='root')
     cursor = mariadb_connection.cursor()
     try:
         sql = "SELECT * FROM `data`"
@@ -54,11 +54,11 @@ def get_one_unites():
         id = int(request.args['id'])
     else:
         return "Erreur: Aucun champ id fourni. Specifiez un id."
-    mariadb_connection = mariadb.connect(host='mysql',
+    mariadb_connection = mariadb.connect(host='127.0.0.1',
                                          database='devops',
                                          port='3306',
                                          user='root',
-                                         password='devops')
+                                         password='root')
     cursor = mariadb_connection.cursor()
 
     try:
@@ -83,7 +83,7 @@ def get_one_unites():
 # Acceuil sur http://127.0.0.1:5000/
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>DATA API</h1><p>Acces à toutes les data des unites et leurs automates. Ce lien vous permettra d'observer la données : http://127.0.0.1:5000/unites/all</p>"
+    return "<h1>DATA API</h1><p>Acces à toutes les data des unites et leurs automates. Ce lien vous permettra d'observer la données : <a href='http://127.0.0.1:5000/unites/all'>http://127.0.0.1:5000/unites/all</a></p>"
 
 
 if __name__ == '__main__':
