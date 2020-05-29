@@ -31,16 +31,25 @@ Ce projet est **dockerisé**. l'application est divisée en plusieurs conteneurs
 
 Tout d'abord, il faut se placer das le dossier index avec la commande :
 
-`cd index`
+```
+cd index
+```
 
 Puis effectuer la commande suivante, pour installer toutes les dépendances nécessaires à l'interface web :
 
-`npm install`
+```
+npm install
+```
 
 Ensuite il faut se replacer à la racine du projet et lancer les conteneurs docker avec les commandes suivantes :
 
-`cd ..`
-`docker-compose up`
+```
+cd ..
+```
+
+```
+docker-compose up
+```
 
 La commande **docker-compose** peut prendre quelques instants pour construire les conteneurs.
 
@@ -52,19 +61,31 @@ Pour lancer les programmes python en local, il va vous falloir 4 invite de comma
 
 Voici tout d'abord les dépendances nécessaires :
 
-`python -m pip install mysql-connector-python`
-`python -m pip install flask`
-`python -m pip install flask_cors`
+```
+python -m pip install mysql-connector-python
+```
+
+```
+python -m pip install flask
+```
+
+```
+python -m pip install flask_cors
+```
 
 Parcourez les fichiers pour entrer dans le document 'automate' puis lancez la commande suivante :
 
-`python generation.py`
+```
+python generation.py
+```
 
 Ce programme permet de créer les json à l'aide des 5 unités composé de 10 automates.
 
 Puis dans le même document lancez une seconde invite de commande avec la commande suivante :
 
-`python envoie.py`
+```
+python envoie.py
+```
 
 Ce script permet derécupérer les fichier json et de les saisir dans la base de données.
 
@@ -72,12 +93,16 @@ Lancé dans cet ordre, les deux scripts se lanceront toutes les minutes.
 
 Pour la troisième invite de commande, entrez dans le document 'recup_donnees' et lancez la commande suivante :
 
-`python script.py`
+```
+python script.py
+```
 
 Ce programme lancera une interface web : http://127.0.0.1:5000/ où on peut retrouver les données de la base.
 
 Le dernier script est dans le document 'recup_donnees' :
 
-`python python_dump.py`
+```
+python python_dump.py
+```
 
 Ce programme permet de créer un dump de la base avec les données actuelles.
