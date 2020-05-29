@@ -47,6 +47,39 @@ def get_all_unites():
             mimetype='application/json'
             ))
 
+#Permet de voir la données sur http://127.0.0.1:5000/unites
+@app.route('/unites', methods=['GET'])
+def get_one_unites():
+    if 'id' in request.args:
+        id = int(request.args['id'])
+    else:
+        return "Erreur: Aucun champ id fourni. Specifiez un id."
+    mariadb_connection = mariadb.connect(host='mysql',
+                                         database='devops',
+                                         port='3306',
+                                         user='root',
+                                         password='devops')
+    cursor = mariadb_connection.cursor()
+
+    try:
+        query = "SELECT * FROM `data` WHERE `numero_unite` = %s"
+        cursor.execute(query, (id,))
+        return (app.response_class(
+            response=json.dumps(cursor.fetchall(), default=getDate),
+            status=200,
+            mimetype='application/json'
+        ))
+    finally:
+        if cursor != None:
+            cursor.close()
+        if mariadb_connection != None:
+            mariadb_connection.close()
+    return (app.response_class(
+        response=json.dumps({}, default=getDate),
+        status=200,
+        mimetype='application/json'
+    ))
+
 # Acceuil sur http://127.0.0.1:5000/
 @app.route('/', methods=['GET'])
 def home():

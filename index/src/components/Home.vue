@@ -2,6 +2,7 @@
   <div class="container">
     <router-link
       class="unit-container"
+      ripple
       v-for="(unit, i) in units"
       :key="i + 1"
       v-bind:to="'/details/' + unit"

@@ -7,7 +7,7 @@ const { reactiveProp } = mixins;
 export default {
   extends: Line,
   mixins: [reactiveProp],
-  name: "Chart",
+  name: "LineChart",
   props: {
     chartData: {
       type: Object,
