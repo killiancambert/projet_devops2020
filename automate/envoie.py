@@ -9,14 +9,13 @@ import glob
 import os
 from mysql.connector import Error
 
-sched = sched.scheduler(time.time, time.sleep)
-
 # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # s.connect((socket.gethostname(), 1234))
 # msg = s.recv(1024)
 # print(msg.decode())
 
-def envoie(sc):
+
+def envoie():
     allJson = glob.glob('json/*.json')
     for x in allJson:
         with open(x) as json_file:
@@ -74,8 +73,8 @@ def envoie(sc):
         # Suppression du fichier pour éviter de surcharger
         os.remove(x)
         print("Suppression du fichier "+str(x))
-        sched.enter(60, 1, envoie, (sc,))
 
 
-sched.enter(0, 1, envoie, (sched,))
-sched.run()
+while True:
+    envoie()
+    time.sleep(60)

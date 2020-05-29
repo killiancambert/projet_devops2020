@@ -24,9 +24,8 @@ random_type = ['0X0000BA20', '0X0000BA2F']
 today = datetime.now()
 date = today.strftime("%d-%m-%Y")
 
-sched = sched.scheduler(time.time, time.sleep)
 
-def generation(sc):
+def generation():
     for x in id_unite:
         json_name = "paramunite_"+str(x)+"_"+str(date)+".json"
         print("Creation fichier {}".format(json_name))
@@ -64,18 +63,8 @@ def generation(sc):
             json.dump(data, json_file, indent=4)
         print("Fichier %s créé" % json_name)
     print("\nLe prochain fichier sera créé dans 60 secondes.")
-    
-    sched.enter(60, 1, generation, (sc,))
 
 
-# s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# s.bind((socket.gethostname(), 1234))
-# s.listen(5)
-# while True:
-#     clientsocket, address = s.accept()
-#     print(f"Connexion de {address} a été établie !")
-#     clientsocket.send(bytes("Socket marche !", "utf-8"))
-#     print('Envoie du fichier au serveur')
-
-sched.enter(0, 1, generation, (sched,))
-sched.run()
+while True:
+    generation()
+    time.sleep(60)

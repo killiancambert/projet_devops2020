@@ -7,10 +7,7 @@ CREATE USER 'administrateur_delegue'@'127.0.0.1' IDENTIFIED BY 'administrateur_d
 GRANT ALL PRIVILEGES ON devops.* TO 'administrateur_delegue'@'127.0.0.1';
 
 CREATE USER 'concentrateur_docker'@'127.0.0.1' IDENTIFIED BY 'concentrateur_docker';
-GRANT  ON devops.* TO 'concentrateur_docker'@'127.0.0.1';
-
-CREATE USER 'administrateur_delegue'@'127.0.0.1' IDENTIFIED BY 'administrateur_delegue';
-GRANT INSERT, SELECT, UPDATE ON devops.* TO 'administrateur_delegue'@'127.0.0.1';
+GRANT INSERT, SELECT, UPDATE devops.* TO 'concentrateur_docker'@'127.0.0.1';
 
 CREATE USER 'datavision'@'127.0.0.1' IDENTIFIED BY 'datavision';
 GRANT SELECT ON devops.* TO 'datavision'@'127.0.0.1';

@@ -6,44 +6,68 @@ services:
     image: mysql
     environment:
       MYSQL_DATABASE: "devops"
-      MYSQL_USER: "user"
-      MYSQL_PASSWORD: "devops"
+      MYSQL_USER: "administrateur_delegue"
+      MYSQL_PASSWORD: "administrateur_delegue"
       MYSQL_ROOT_PASSWORD: "rootdevops"
     ports:
       - "3309:3306"
 
   unite_1:
     container_name: unite_1
-    build: ./automate/
+    build: ./automate
     environment:
       - UNITE=1
+    command: >
+      bash -c '
+      python generation.py &
+      python envoie.py'
+
 
   unite_2:
     container_name: unite_2
-    build: ./automate/
+    build: ./automate
     environment:
       - UNITE=2
+    command: >
+      bash -c '
+      python generation.py &
+      python envoie.py'
 
   unite_3:
     container_name: unite_3
-    build: ./automate/
+    build: ./automate
     environment:
       - UNITE=3
+    command: >
+      bash -c '
+      python generation.py &
+      python envoie.py'
 
   unite_4:
     container_name: unite_4
-    build: ./automate/
+    build: ./automate
     environment:
       - UNITE=4
+    command: >
+      bash -c '
+      python generation.py &
+      python envoie.py'
 
   unite_5:
     container_name: unite_5
-    build: ./automate/
+    build: ./automate
     environment:
       - UNITE=5
-
+    command: >
+      bash -c '
+      python generation.py &
+      python envoie.py'
+      
   recup_donnees:
     container_name: recup_donnees
     build: ./recup_donnees/
     ports:
-      - "5000:5000"
+      - "127.0.0.1:5000:5000"
+    command: >
+      bash -c '
+      python script.py'
