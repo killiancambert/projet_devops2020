@@ -1,73 +1,90 @@
 # //La communication entre le mécanisme de lecture des fichiers json et de génération se fera par Socket Python chaque fois qu’un fichier sera disponible
 
 from flask import Flask
-from flask_restful import Resource, Api
-
-# Instantiate the app
-app = Flask(__name__)
-api = Api(app)
-
+from flask import request
+from flask_cors import CORS
+import mysql.connector as mariadb
+from mysql.connector import Error
+import datetime
 import json
-import os
-import pymysql.cursors
 
-# Récupération du fichier JSON
-file = 'paramunite_1_26-05-2020.json'
-json_data=open(file).read()
-json_obj = json.loads(json_data)
+app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+app.config["DEBUG"] = True
 
 
-# Retourne toutes les valeurs en string
-def validate_string(val):
-   if val != None:
-        if type(val) is int:
-            #for x in val:
-            #   print(x)
-            return str(val).encode("utf8")
-        elif type(val) is float:
-            #for x in val:
-            #   print(x)
-            return str(val).encode("utf8")
-        else:
-            return val
+def getDate(o):
+    if isinstance(o, (datetime.date, datetime.datetime)):
+        return o.timestamp()
 
-# Connexion à la base de données
-conn = pymysql.connect(host='localhost',
-                             user='root',
-                             password='root',
-                             db='devops',
-                             cursorclass=pymysql.cursors.DictCursor)
 
-for value in json_obj.values():
-    numero_unite = validate_string(value.get('numero_unite', None))
-    numero_automate = validate_string(value.get('numero_automate', None))
-    type_automate = validate_string(value.get('type_automate', None))
-    temperature_cuve = validate_string(value.get('temperature_cuve', None))
-    temperature_exterieur = validate_string(value.get('temperature_exterieur', None))
-    poids_lait_cuve = validate_string(value.get('poids_lait_cuve', None))
-    poids_produit_fini = validate_string(value.get('poids_produit_fini', None))
-    pH = validate_string(value.get('pH', None))
-    K = validate_string(value.get('K', None))
-    NaCl = validate_string(value.get('NaCl', None))
-    salmonelle = validate_string(value.get('salmonelle', None))
-    Ecoli = validate_string(value.get('Ecoli', None))
-    listeria = validate_string(value.get('listeria', None))
+# Permet de voir la données sur http://127.0.0.1:5000/unites/all
+@app.route('/unites/all', methods=['GET'])
+def get_all_unites():
+    mariadb_connection = mariadb.connect(host='127.0.0.1',
+                                         database='devops',
+                                         port='3306',
+                                         user='root',
+                                         password='rootdevops')
+    cursor = mariadb_connection.cursor()
     try:
-        with conn.cursor() as cursor:
-            # Create a new record
-            sql = "INSERT INTO 'data' ('numero_unite',	'numero_automate','type_automate', 'temperature_cuve', 'temperature_exterieur', 'poids_lait_cuve', 'poids_produit_fini', 'pH', 'K', 'NaCl', 'salmonelle', 'Ecoli', 'listeria') VALUES (%s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s,	%s)"
-            cursor.execute(sql, (numero_unite,	numero_automate,type_automate, temperature_cuve, temperature_exterieur, poids_lait_cuve, poids_produit_fini, pH, K, NaCl, salmonelle, Ecoli, listeria))
-            #  cursor.execute("INSERT INTO automate (numero_unite,	numero_automate,type_automate, temperature_cuve, temperature_exterieur, poids_lait_cuve, poids_produit_fini, pH, K, NaCl, salmonelle, Ecoli, listeria) VALUES (%s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s, %s,	%s,	%s,	%s)", (numero_unite,	numero_automate,type_automate, temperature_cuve, temperature_exterieur, poids_lait_cuve, poids_produit_fini, pH, K, NaCl, salmonelle, Ecoli, listeria))
-
-        conn.commit()
-
-
+        sql = "SELECT * FROM `data`"
+        cursor.execute(sql)
+        return (app.response_class(
+            response=json.dumps(cursor.fetchall(), default=getDate),
+            status=200,
+            mimetype='application/json'
+        ))
     finally:
-        conn.close()
+        if cursor != None:
+            cursor.close()
+        if mariadb_connection != None:
+            mariadb_connection.close()
 
-# Create routes
-api.add_resource(validate_string, '/')
+    return (app.response_class(
+            response=json.dumps({}, default=getDate),
+            status=200,
+            mimetype='application/json'
+            ))
 
-# Run the application
+#Permet de voir la données sur http://127.0.0.1:5000/unites
+@app.route('/unites', methods=['GET'])
+def get_one_unites():
+    if 'id' in request.args:
+        id = int(request.args['id'])
+    else:
+        return "Erreur: Aucun champ id fourni. Specifiez un id."
+    mariadb_connection = mariadb.connect(host='127.0.0.1',
+                                         database='devops',
+                                         port='3306',
+                                         user='root',
+                                         password='rootdevops')
+    cursor = mariadb_connection.cursor()
+
+    try:
+        query = "SELECT * FROM `data` WHERE `numero_unite` = %s"
+        cursor.execute(query, (id,))
+        return (app.response_class(
+            response=json.dumps(cursor.fetchall(), default=getDate),
+            status=200,
+            mimetype='application/json'
+        ))
+    finally:
+        if cursor != None:
+            cursor.close()
+        if mariadb_connection != None:
+            mariadb_connection.close()
+    return (app.response_class(
+        response=json.dumps({}, default=getDate),
+        status=200,
+        mimetype='application/json'
+    ))
+
+# Acceuil sur http://127.0.0.1:5000/
+@app.route('/', methods=['GET'])
+def home():
+    return "<h1>DATA API</h1><p>Acces à toutes les data des unites et leurs automates. Ce lien vous permettra d'observer la données : <a href='http://127.0.0.1:5000/unites/all'>http://127.0.0.1:5000/unites/all</a></p>"
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(debug=True)
