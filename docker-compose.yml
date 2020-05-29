@@ -6,11 +6,13 @@ services:
     image: mysql
     environment:
       MYSQL_DATABASE: "devops"
-      MYSQL_USER: "administrateur_delegue"
-      MYSQL_PASSWORD: "administrateur_delegue"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "root"
       MYSQL_ROOT_PASSWORD: "root"
     ports:
       - "3309:3306"
+    volumes:
+      - ./devops_dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
   unite_1:
     container_name: unite_1
