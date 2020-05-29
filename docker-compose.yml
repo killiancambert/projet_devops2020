@@ -71,3 +71,10 @@ services:
     command: >
       bash -c '
       python script.py'
+      - "5000:5000"
+
+  index:
+    container_name: index
+    build: ./index/
+    ports:
+      - '80:80'
