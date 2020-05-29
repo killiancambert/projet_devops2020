@@ -25,7 +25,7 @@ def get_all_unites():
                                          database='devops',
                                          port='3306',
                                          user='root',
-                                         password='root')
+                                         password='rootdevops')
     cursor = mariadb_connection.cursor()
     try:
         sql = "SELECT * FROM `data`"
@@ -58,7 +58,7 @@ def get_one_unites():
                                          database='devops',
                                          port='3306',
                                          user='root',
-                                         password='root')
+                                         password='rootdevops')
     cursor = mariadb_connection.cursor()
 
     try:

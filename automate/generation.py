@@ -1,12 +1,14 @@
 import random
 from datetime import datetime
-import sched
 import time
 import json
 import sys
 import os
 import socket
 
+# s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# s.bind((socket.gethostname(), 1234))
+# s.listen(5)
 
 id_unite = os.getenv('UNITE')
 
@@ -62,8 +64,15 @@ def generation():
         with open('json/'+json_name, 'w') as json_file:
             json.dump(data, json_file, indent=4)
         print("Fichier %s créé" % json_name)
-    print("\nLe prochain fichier sera créé dans 60 secondes.")
 
+    # Socket qui envoie le nom json au serveur (fonctionnel mais docker mysql non fonctionnel)
+    # print('Envoie json au serveur')
+    # clientsocket, address = s.accept()
+    # print(f"Connexion depuis {address} a été établite !")
+    # clientsocket.send(bytes(json_name, 'utf-8'))
+    # clientsocket.close()
+
+    print("\nLe prochain fichier sera créé dans 60 secondes.")
 
 while True:
     generation()

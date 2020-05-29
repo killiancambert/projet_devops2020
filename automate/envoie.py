@@ -9,13 +9,14 @@ import glob
 import os
 from mysql.connector import Error
 
-# s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# s.connect((socket.gethostname(), 1234))
-# msg = s.recv(1024)
-# print(msg.decode())
-
-
 def envoie():
+    # Récéption par socket du fichier json (fonctionnel mais docker mysql non fonctionnel)
+    # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # s.connect((socket.gethostname(), 1234))
+    # json = s.recv(1024).decode('utf-8')
+    # jsonString = str(json)
+    # print(jsonString)
+
     allJson = glob.glob('json/*.json')
     for x in allJson:
         with open(x) as json_file:
@@ -26,7 +27,7 @@ def envoie():
                                                  database='devops',
                                                  port='3306',
                                                  user='root',
-                                                 password='root')
+                                                 password='rootdevops')
             cursor = connection.cursor()
             try:
                 # Ajout données récupéré dans les json dans la base de données
