@@ -29,7 +29,7 @@
 }
 .button {
   margin-top: 50px;
-  margin-right: 50px;
+  align-self: center;
 }
 button {
   background: #0084B8;
