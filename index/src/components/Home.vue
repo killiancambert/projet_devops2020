@@ -4,7 +4,7 @@
       class="unit-container"
       v-for="(unit, i) in units"
       :key="i + 1"
-      v-bind="'/stats/' + unit"
+      v-bind:to="'/details/' + unit"
     >
       <div class="unit">
         <div class="title">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Home",
   data() {
@@ -27,6 +28,7 @@ export default {
     };
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

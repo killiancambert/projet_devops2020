@@ -1,24 +1,22 @@
 <template>
   <div>
-    <Home/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Home from './components/Home'
 
 export default {
-  name: 'App',
-  components: {
-    Home
-  }
+  name: "App"
 }
+
 </script>
 
 <style>
 
 body {
   font-family: Montserrat;
+  margin: 0;
 }
 
 </style>
