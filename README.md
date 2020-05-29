@@ -1,10 +1,52 @@
-# Projet DevOps 2020
+# Projet DevOps 2020 - Au Bon Beurre
+
+Projet réalisé par :
 
 - Killian Cambert : killiancambert
 - Antonin Joulie : AntoninJoulie
-- Valentin Dezat : valdezat
 
-# Lancer le projet en local
+## Contexte du projet
+
+Notre client a besoin d'un **intranet** afin de visualiser les éléments de suivi de la chaine de traitements des produits.
+L'interface Web permet l'accès aux détails des unités, c'est-à-dire les informations liées aux produits, sous la forme de graphiques.
+Il est également possible d'exporter ces derniers au format PDF.
+
+## Pré-requis
+
+Installer : 
+
+- docker
+- docker-compose
+
+## À savoir
+
+Ce projet est **dockerisé**. l'application est divisée en plusieurs conteneurs :
+
+- Les 5 unités (un conteneur par unité)
+- L'API
+- La base de données
+- L'interface web
+
+## Lancer le projet 
+
+Tout d'abord, il faut se placer das le dossier index avec la commande :
+
+`cd index`
+
+Puis effectuer la commande suivante, pour installer toutes les dépendances nécessaires à l'interface web :
+
+`npm install`
+
+Ensuite il faut se replacer à la racine du projet et lancer les conteneurs docker avec les commandes suivantes :
+
+`cd ..`
+`docker-compose up`
+
+La commande **docker-compose** peut prendre quelques instants pour construire les conteneurs.
+
+Une fois les conteneurs construits, il sera possible d'accéder à **l'interface web** à cette adresse : [localhost:80](http://localhost:80)
+
+## Lancer le projet en local
 
 Pour lancer les programmes python en local, il va vous falloir 4 invite de commande.
 
@@ -39,21 +81,3 @@ Le dernier script est dans le document 'recup_donnees' :
 `python python_dump.py`
 
 Ce programme permet de créer un dump de la base avec les données actuelles.
-
-# Comment lancer Docker
-
-Il faut éxécuter cette commande :
-
-`docker-compose up`
-
-# Pour lancer la partie web
-
-Il faut se placer sur la partie **plateforme** grâce à cette commande :
-
-`cd plateforme`
-
-Il faut utiliser l'extension **Live Server** dans Visual Studio Code
-
-Ensuite pour lancer Live Server, il est possible d'appuyer sur le bouton **Go Live** qui se situe en bas à droite de la fenêtre Visual Studio Code.
-
-Une fois cela fait, la plateforme sera lancée automatiquement sur une page localhost
