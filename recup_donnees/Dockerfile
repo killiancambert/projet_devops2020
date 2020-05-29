@@ -1,12 +1,9 @@
 FROM python:3
+ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app
+RUN mkdir /recup_donnees
+WORKDIR /recup_donnees
+COPY requirements.txt /recup_donnees/
+RUN pip3 install -r requirements.txt
 
-RUN pip install mysql-connector-python
-RUN pip install flask
-RUN pip install flask_cors
-RUN pip install mariadb
-
-COPY script.py .
-
-CMD ["python", "./script.py"]
+COPY . /recup_donnees/

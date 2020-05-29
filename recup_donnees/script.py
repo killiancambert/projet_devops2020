@@ -50,7 +50,7 @@ def get_all_unites():
 # Acceuil sur http://127.0.0.1:5000/
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>DATA API</h1><p>Acces à toutes les data des unites et leurs automates.</p>"
+    return "<h1>DATA API</h1><p>Acces à toutes les data des unites et leurs automates. Ce lien vous permettra d'observer la données : http://127.0.0.1:5000/unites/all</p>"
 
 
 if __name__ == '__main__':
